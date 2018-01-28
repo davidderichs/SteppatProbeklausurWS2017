@@ -1,0 +1,3 @@
+Dies ist die erste tolle Zeile.
+Hier befindet sich die zweite Zeile.
+Die dritte Zeile ist eine gaaaaanz besonders lange Zeile und wird zum Testen verwendet.
