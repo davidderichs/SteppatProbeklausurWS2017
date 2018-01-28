@@ -7,10 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +22,6 @@ import java.io.IOException;
  */
 public class JavaFXElementeUeberblick extends Application{
 
-    ToggleGroup radioGroup;
     Paint color = Paint.valueOf("white");
 
     @Override
@@ -49,6 +50,12 @@ public class JavaFXElementeUeberblick extends Application{
         line.setEndX(75.0f);
         line.setEndY(300.0f);
 
+        Rectangle rectangle = new Rectangle(50, 25, Color.BLACK);
+        rectangle.setX(25);
+        rectangle.setY(350);
+        rectangle.setFill(color);
+        rectangle.setStroke(Paint.valueOf("black"));
+
         Button btn = new Button("ok");
         btn.setLayoutX(450);
         btn.setLayoutY(25);
@@ -60,8 +67,8 @@ public class JavaFXElementeUeberblick extends Application{
                 circle.setFill(color);
                 polygon.setFill(color);
                 line.setStroke(color);
-
-                if(color.equals(Paint.valueOf("white"))){
+                rectangle.setFill(color);
+                if (color.equals(Paint.valueOf("white"))) {
                     line.setStroke(Paint.valueOf("black"));
                 }
             }
@@ -85,7 +92,8 @@ public class JavaFXElementeUeberblick extends Application{
                 try {
                     RadioMenuItem rmi = (RadioMenuItem) newValue;
                     color = Paint.valueOf(rmi.getText());
-                } catch (NullPointerException e) {}
+                } catch (NullPointerException e) {
+                }
             }
         });
 
@@ -112,6 +120,7 @@ public class JavaFXElementeUeberblick extends Application{
         root.getChildren().add(btn);
         root.getChildren().add(label);
         root.getChildren().add(menuBar);
+        root.getChildren().addAll(rectangle);
 
         Scene scene = new Scene(root, 800,600);
         primaryStage.setScene(scene);
